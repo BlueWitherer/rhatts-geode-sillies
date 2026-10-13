@@ -1,2 +1,2 @@
-# ![<img src="https://raw.githubusercontent.com/BlueWitherer/RhattsModTemplate/refs/heads/main/logo.png" width="25" alt="My template mod's logo." />](https://geode-sdk.org/mods?per_page=100&developer=bluewitherer&sort=downloads) rhatt's geode sillies
+# [<img src="https://raw.githubusercontent.com/BlueWitherer/RhattsModTemplate/refs/heads/main/logo.png" width="25" alt="My template mod's logo." />](https://geode-sdk.org/mods?per_page=100&developer=bluewitherer&sort=downloads) rhatt's geode sillies
 A personal library with useful stuff for [my Geode mods](https://geode-sdk.org/mods?per_page=100&developer=bluewitherer&sort=downloads).
