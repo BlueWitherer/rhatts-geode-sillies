@@ -25,7 +25,7 @@ endif()
 target_link_libraries(${PROJECT_NAME} geode-sdk)
 
 if(CW_TESTING)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE CW_TESTING=1)
+    target_compile_definitions(${PROJECT_NAME} PUBLIC CW_TESTING=1)
 endif()
 
 if(CW_ENABLE_WEB)
