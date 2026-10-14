@@ -8,7 +8,9 @@
 
 #ifdef CW_ENABLE_WEB
 #ifndef CW_WEB_BASEURL
+#ifdef CW_TESTING
 #define CW_WEB_BASEURL "http://localhost:6769/"
+#endif
 #endif
 
 #define CW_ARGON_UNWRAP(var)                                                                        \
