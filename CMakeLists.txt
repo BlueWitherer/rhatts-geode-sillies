@@ -18,7 +18,10 @@ else()
     message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
-add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
+if(PROJECT_IS_TOP_LEVEL)
+    add_subdirectory($ENV{GEODE_SDK} ${CMAKE_CURRENT_BINARY_DIR}/geode)
+endif()
+
 target_link_libraries(${PROJECT_NAME} geode-sdk)
 
 if(CW_TESTING)
