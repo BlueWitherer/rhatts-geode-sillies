@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-project(RhattsGeodeSillies VERSION 1.0.0)
+project(rhatt VERSION 1.0.0)
 
 option(CW_TESTING "Enable local testing mode" ON)
 option(CW_ENABLE_WEB "Enable web features" OFF)
