@@ -1,8 +1,8 @@
 #pragma once
 
-#ifdef CW_ENABLE_WEB
 #include "../Macros.h"
 
+#ifdef CW_ENABLE_WEB
 #include "../aliases.hpp"
 
 #include <Geode/Geode.hpp>
