@@ -10,10 +10,6 @@
 using namespace geode::prelude;
 using namespace cw;
 
-std::string url::apiEndpoint(std::string_view path) {
-    return fmt::format("{}/api{}", url::apiBase, path);
-};
-
 Result<WebRes> json::Serialize<WebRes>::fromJson(json::Value const& value) {
     GEODE_UNWRAP_INTO(std::string error, value["error"].asString());
 
