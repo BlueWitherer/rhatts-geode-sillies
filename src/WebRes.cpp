@@ -59,7 +59,7 @@ web::WebRequest request::base() {
         .timeout(std::chrono::seconds(15));
 };
 
-web::WebRequest request::setBytes(geode::utils::web::WebRequest& other, geode::ByteVector data) {
+web::WebRequest request::setBytes(geode::utils::web::WebRequest other, geode::ByteVector data) {
     return other.body(std::move(data));
 }
 
