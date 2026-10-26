@@ -54,6 +54,8 @@ namespace cw {
         WebRes parse(web::WebResponse const& res);
 
         web::WebRequest base();
+
+        geode::utils::web::WebRequest setBytes(geode::utils::web::WebRequest& other, geode::ByteVector data);
     };
 #endif
 };
