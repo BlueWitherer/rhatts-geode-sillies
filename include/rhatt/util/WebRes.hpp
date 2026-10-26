@@ -54,9 +54,6 @@ namespace cw {
         WebRes parse(web::WebResponse const& res);
 
         web::WebRequest base();
-
-        web::WebRequest withAuth(std::string token);
-        arc::Future<web::WebRequest> withAuthCo(std::string token);
     };
 #endif
 };

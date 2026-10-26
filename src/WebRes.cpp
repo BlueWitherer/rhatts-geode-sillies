@@ -3,8 +3,6 @@
 
 #include <rhatt/prelude.h>
 
-#include <argon/argon.hpp>
-
 #include <Geode/Geode.hpp>
 
 using namespace geode::prelude;
@@ -59,22 +57,6 @@ web::WebRequest request::base() {
             loader->getVersion(),
             loader->getGameVersion()))
         .timeout(std::chrono::seconds(15));
-};
-
-web::WebRequest request::withAuth(std::string token) {
-    auto acc = argon::getGameAccountData();
-
-    return base()
-        .param("account_id", acc.accountId)
-        .param("authtoken", std::move(token))
-        .param("user_id", acc.userId)
-        .param("username", std::move(acc.username));
-};
-
-arc::Future<web::WebRequest> request::withAuthCo(std::string token) {
-    co_return *co_await async::waitForMainThread<web::WebRequest>([t = std::move(token)]() {
-        return withAuth(std::move(t));
-    });
 };
 
 json::Value& WebRes::getPayloadValue() & noexcept {
