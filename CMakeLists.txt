@@ -25,9 +25,6 @@ target_link_libraries(${PROJECT_NAME} geode-sdk)
 
 if(CW_ENABLE_WEB)
     target_compile_definitions(${PROJECT_NAME} PUBLIC CW_ENABLE_WEB=1)
-
-    CPMAddPackage("gh:GlobedGD/argon@1.5.1")
-    target_link_libraries(${PROJECT_NAME} argon)
 endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
