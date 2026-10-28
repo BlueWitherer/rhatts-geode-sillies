@@ -35,8 +35,6 @@ namespace cw {
         };
 
         namespace nodes {
-            void closeBtnID(cocos2d::CCNode* btn);
-
             geode::Button* addHelpButton(cocos2d::CCNode* to, std::string content, bool useMarkdown = false, float btnScale = 0.75f, cocos2d::CCPoint const& offset = {});
         };
 

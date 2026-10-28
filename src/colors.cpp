@@ -13,7 +13,7 @@ constexpr ccColor3B colors::internal::lerpColor(ccColor3B const& a, ccColor3B co
         static_cast<GLubyte>(a.g + (b.g - a.g) * t),
         static_cast<GLubyte>(a.b + (b.b - a.b) * t),
     };
-};
+}
 
 constexpr ccColor3B colors::fadeColor(float value) noexcept {
     if (value > 100.f) value = 100.f;
@@ -26,4 +26,4 @@ constexpr ccColor3B colors::fadeColor(float value) noexcept {
         auto t = (value - 50.0f) / 50.0f;
         return internal::lerpColor(yellow, green, t);
     };
-};
+}

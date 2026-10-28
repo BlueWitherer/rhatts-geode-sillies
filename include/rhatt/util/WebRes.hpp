@@ -3,9 +3,9 @@
 #include "../Macros.h"
 
 #ifdef CW_ENABLE_WEB
-#include "../aliases.hpp"
+    #include "../aliases.hpp"
 
-#include <Geode/Geode.hpp>
+    #include <Geode/Geode.hpp>
 #endif
 
 namespace cw {
@@ -17,12 +17,12 @@ namespace cw {
 
         inline std::string apiEndpoint(std::string_view path) {
             return fmt::format("{}/api{}", apiBase, path);
-        };
+        }
     };
 
     inline std::string operator""_api(const char* str, size_t len) {
-        return url::apiEndpoint(std::string_view{str, len});
-    };
+        return url::apiEndpoint(std::string_view{ str, len });
+    }
 
     struct WebRes final {
     private:
@@ -37,7 +37,7 @@ namespace cw {
         template <typename T>
         geode::Result<T> getPayload() const {
             return m_payload.as<T>();
-        };
+        }
 
         json::Value& getPayloadValue() & noexcept;
         json::Value&& getPayloadValue() && noexcept;

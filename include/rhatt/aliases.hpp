@@ -10,11 +10,11 @@ namespace cw {
     namespace sfx {
         inline void play(geode::ZStringView file) {
             (void)FMODAudioEngine::sharedEngine()->playEffectAsync(file);
-        };
+        }
     };
 
     namespace anchor {
-        inline constexpr cocos2d::CCPoint center = {0.5f, 0.5f};
+        inline constexpr cocos2d::CCPoint center = { 0.5f, 0.5f };
     };
 
     namespace json = matjson;

@@ -9,21 +9,18 @@
 using namespace geode::prelude;
 using namespace cw;
 
-void ui::nodes::closeBtnID(CCNode* btn) {
-    if (btn) btn->setID("close-btn");  // Xd
-};
-
 Button* ui::nodes::addHelpButton(CCNode* to, std::string content, bool useMarkdown, float btnScale, CCPoint const& offset) {
     auto infoBtn = Button::createWithSpriteFrameName(
         ui::sprites::info,
         [cont = std::move(content), useMarkdown](auto) {
             if (useMarkdown) return MDPopup::create(
-                true,
-                "Help",
-                cont,
-                "OK",
-                nullptr,
-                nullptr)
+                                        true,
+                                        "Help",
+                                        cont,
+                                        "OK",
+                                        nullptr,
+                                        nullptr
+            )
                 ->show();
 
             createQuickPopup(
@@ -31,15 +28,17 @@ Button* ui::nodes::addHelpButton(CCNode* to, std::string content, bool useMarkdo
                 cont,
                 "OK",
                 nullptr,
-                nullptr);
-        });
+                nullptr
+            );
+        }
+    );
     infoBtn->setID("info-btn");
     infoBtn->setScale(btnScale);
     infoBtn->setZOrder(CW_HIGHEST_Z);
 
     to->addChildAtPosition(infoBtn, Anchor::TopRight, ccp(-13.75f, -13.75f) + offset, false);
     return infoBtn;
-};
+}
 
 FLAlertLayer* ui::popups::showDiscord() {
     return createQuickPopup(
@@ -50,9 +49,10 @@ FLAlertLayer* ui::popups::showDiscord() {
         "OK",
         [](auto, bool ok) {
             if (ok) web::openLinkInBrowser("https://www.dsc.gg/cheeseworks");
-        });
-};
+        }
+    );
+}
 
 void ui::popups::showSupport() {
     return openSupportPopup(Mod::get());
-};
+}

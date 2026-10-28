@@ -18,7 +18,7 @@ namespace cw {
             static T* get() noexcept {
                 static T inst;
                 return &inst;
-            };
+            }
         };
     };
 };

@@ -16,7 +16,7 @@ namespace cw {
         inline T get(T max, T min = static_cast<T>(0)) {
             if constexpr (std::is_integral_v<T>) return internal::generate<T>(min, max + static_cast<T>(1));
             return internal::generate<T>(min, max);
-        };
+        }
 
         bool flip();
 

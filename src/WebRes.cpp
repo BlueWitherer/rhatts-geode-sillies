@@ -1,9 +1,9 @@
 #ifdef CW_ENABLE_WEB
-#include <rhatt/util/WebRes.hpp>
+    #include <rhatt/util/WebRes.hpp>
 
-#include <rhatt/prelude.h>
+    #include <rhatt/prelude.h>
 
-#include <Geode/Geode.hpp>
+    #include <Geode/Geode.hpp>
 
 using namespace geode::prelude;
 using namespace cw;
@@ -15,7 +15,7 @@ Result<WebRes> json::Serialize<WebRes>::fromJson(json::Value const& value) {
     GEODE_UNWRAP_INTO_IF_OK(code, value["code"].asUInt());
 
     return Ok(WebRes(value["payload"], std::move(error), code));
-};
+}
 
 json::Value json::Serialize<WebRes>::toJson(WebRes const& value) {
     json::Value obj;
@@ -25,9 +25,9 @@ json::Value json::Serialize<WebRes>::toJson(WebRes const& value) {
     obj["code"] = value.getCode();
 
     return obj;
-};
+}
 
-WebRes::WebRes(json::Value payload, std::string error, uint16_t code) : m_payload(std::move(payload)), m_error(std::move(error)), m_code(code) {};
+WebRes::WebRes(json::Value payload, std::string error, uint16_t code) : m_payload(std::move(payload)), m_error(std::move(error)), m_code(code) {}
 
 WebRes request::parse(web::WebResponse const& res) {
     auto const fallback = [&res](std::string err) {
@@ -45,19 +45,15 @@ WebRes request::parse(web::WebResponse const& res) {
     if (resp.isErr()) return fallback(std::move(resp).unwrapErr());
 
     return std::move(resp).unwrap();
-};
+}
 
 web::WebRequest request::base() {
     auto loader = Loader::get();
 
     return web::WebRequest()
-        .userAgent(fmt::format("ModComments/{} ({}, Geode {}, GD {})",
-            Mod::get()->getVersion().toVString(false),
-            platform::getString(),
-            loader->getVersion(),
-            loader->getGameVersion()))
+        .userAgent(fmt::format("ModComments/{} ({}, Geode {}, GD {})", Mod::get()->getVersion().toVString(false), platform::getString(), loader->getVersion(), loader->getGameVersion()))
         .timeout(std::chrono::seconds(15));
-};
+}
 
 web::WebRequest request::setBytes(geode::utils::web::WebRequest other, geode::ByteVector data) {
     return other.body(std::move(data));
@@ -65,29 +61,29 @@ web::WebRequest request::setBytes(geode::utils::web::WebRequest other, geode::By
 
 json::Value& WebRes::getPayloadValue() & noexcept {
     return m_payload;
-};
+}
 
 json::Value&& WebRes::getPayloadValue() && noexcept {
     return std::move(m_payload);
-};
+}
 
 json::Value const& WebRes::getPayloadValue() const& noexcept {
     return m_payload;
-};
+}
 
 ZStringView WebRes::getError() const noexcept {
     return m_error;
-};
+}
 
 uint16_t WebRes::getCode() const noexcept {
     return m_code;
-};
+}
 
 bool WebRes::isOk() const noexcept {
     return !m_payload.isNull() && m_error.empty();
-};
+}
 
 bool WebRes::isErr() const noexcept {
     return m_payload.isNull() || m_code >= 400 || !m_error.empty();
-};
+}
 #endif
